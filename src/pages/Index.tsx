@@ -1,5 +1,5 @@
 import React from "react";
-import heroImage from "@/assets/hero-ml.jpg";
+// removed unused hero image import
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Download, Github, Linkedin } from "lucide-react";
@@ -13,9 +13,10 @@ const Index = () => {
     github: "https://github.com/Kush2004agar",
     linkedin: "https://linkedin.com/in/your-linkedin",
   };
+  
+  const profileImage = "/lovable-uploads/5bbfc40e-978f-4aa8-aaf7-5b0b522d0148.png";
 
   const jsonLd = {
-    "@context": "https://schema.org",
     "@type": "Person",
     name: person.name,
     email: `mailto:${person.email}`,
@@ -65,9 +66,9 @@ const Index = () => {
             </div>
             <div>
               <img
-                src={heroImage}
-                alt="Abstract AI/ML neural network illustration"
-                className="w-full rounded-lg shadow-elevated"
+                src={profileImage}
+                alt="Portrait photo of Kushagar Singh Ahuja, aspiring AI/ML engineer"
+                className="w-full max-w-sm rounded-lg shadow-elevated mx-auto object-cover"
                 loading="lazy"
                 decoding="async"
               />
