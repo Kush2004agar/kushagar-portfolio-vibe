@@ -1,7 +1,8 @@
 import React from "react";
-// removed unused hero image import
+import HeroPortrait from "@/components/HeroPortrait";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Download, Github, Linkedin } from "lucide-react";
 
 const Index = () => {
@@ -13,16 +14,18 @@ const Index = () => {
     github: "https://github.com/Kush2004agar",
     linkedin: "https://linkedin.com/in/your-linkedin",
   };
-  
+
   const profileImage = "/lovable-uploads/5bbfc40e-978f-4aa8-aaf7-5b0b522d0148.png";
 
   const jsonLd = {
+    "@context": "https://schema.org",
     "@type": "Person",
     name: person.name,
     email: `mailto:${person.email}`,
     telephone: person.phone,
     sameAs: [person.github, person.linkedin],
     jobTitle: "CSE Student, Aspiring AI/ML Engineer",
+    image: profileImage,
     address: {
       "@type": "PostalAddress",
       addressLocality: "Chennai",
@@ -31,22 +34,26 @@ const Index = () => {
     },
   };
 
+  const projects = [
+    { title: "Fraud Detection (ML)", subtitle: "Python, Scikit-learn, SMOTE", image: "/placeholder.svg" },
+    { title: "Blockchain Voting", subtitle: "Web3 concept", image: "/placeholder.svg" },
+    { title: "Snake & Ladder (Java)", subtitle: "Console OOP", image: "/placeholder.svg" },
+    { title: "Location Finder", subtitle: "Ethical hacking simulation", image: "/placeholder.svg" },
+  ];
+
   return (
     <>
-      <header className="border-b">
-        <div className="container py-12 md:py-20">
-          <div className="grid md:grid-cols-2 gap-10 items-center">
-            <div>
-              <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-4">
-                <span className="text-gradient-brand">Kushagar Singh Ahuja</span>
+      <header className="border-b bg-paper">
+        <div className="container py-10 md:py-16">
+          <div className="flex items-start justify-between gap-10">
+            <div className="max-w-2xl space-y-4">
+              <p className="text-sm tracking-widest text-muted-foreground uppercase">Portfolio</p>
+              <h1 className="text-4xl md:text-6xl font-extrabold leading-[1.05]">
+                AI/ML <span className="text-gradient-brand">ENGINEER</span>
               </h1>
-              <p className="text-lg text-muted-foreground mb-6">
-                Aspiring AI/ML Engineer | Entrepreneur | CSE Student
-              </p>
-              <p className="text-sm text-muted-foreground mb-8">
-                Email: {person.email} · Phone: {person.phone}
-              </p>
-              <div className="flex flex-wrap gap-3">
+              <div className="heading-outline text-5xl md:text-7xl font-extrabold leading-none">PORTFOLIO</div>
+              <p className="text-muted-foreground">{person.title}</p>
+              <div className="flex flex-wrap gap-3 pt-2">
                 <a href="/KUSHAGAR_SINGH_AHUJA.pdf" download>
                   <Button variant="hero">
                     <Download /> Download Resume
@@ -63,14 +70,16 @@ const Index = () => {
                   </Button>
                 </a>
               </div>
+              <p className="text-sm text-muted-foreground">
+                Email: {person.email} · Phone: {person.phone}
+              </p>
             </div>
-            <div>
-              <img
+
+            <div className="hidden md:block">
+              <HeroPortrait
                 src={profileImage}
-                alt="Portrait photo of Kushagar Singh Ahuja, aspiring AI/ML engineer"
-                className="w-full max-w-sm rounded-lg shadow-elevated mx-auto object-cover"
-                loading="lazy"
-                decoding="async"
+                alt="Portrait photo of Kushagar Singh Ahuja with background removed"
+                className="w-[280px] h-[340px] rounded-lg shadow-elevated object-cover"
               />
             </div>
           </div>
@@ -78,7 +87,70 @@ const Index = () => {
       </header>
 
       <main>
-        <section id="about" className="container py-10">
+        <section id="projects" className="container py-12">
+          <h2 className="text-2xl font-bold mb-4">Projects</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            {projects.map((p) => (
+              <Card key={p.title} className="transition-shadow hover:shadow-elevated">
+                <CardContent className="p-0">
+                  <img
+                    src={p.image}
+                    alt={`${p.title} project screenshot`}
+                    className="w-full h-48 object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="p-6">
+                    <h3 className="text-lg font-semibold">{p.title}</h3>
+                    <p className="text-sm text-muted-foreground">{p.subtitle}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        <section id="process" className="container py-12">
+          <h2 className="text-2xl font-bold mb-4">Stages of Project Development</h2>
+          <Card className="transition-shadow hover:shadow-elevated">
+            <CardContent className="p-0">
+              <Accordion type="single" collapsible className="divide-y">
+                <AccordionItem value="briefing">
+                  <AccordionTrigger className="px-6">Briefing</AccordionTrigger>
+                  <AccordionContent className="px-6 pb-6 text-sm text-muted-foreground">
+                    Understand goals, constraints, and success metrics. Define scope, timeline, and dataset availability.
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="analytics">
+                  <AccordionTrigger className="px-6">Analytics</AccordionTrigger>
+                  <AccordionContent className="px-6 pb-6 text-sm text-muted-foreground">
+                    Data exploration, cleaning, and feature engineering with clear documentation and dashboards.
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="prototype">
+                  <AccordionTrigger className="px-6">Prototyping</AccordionTrigger>
+                  <AccordionContent className="px-6 pb-6 text-sm text-muted-foreground">
+                    Baseline models, experiments tracking, and quick iterations to select promising approaches.
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="design">
+                  <AccordionTrigger className="px-6">Design</AccordionTrigger>
+                  <AccordionContent className="px-6 pb-6 text-sm text-muted-foreground">
+                    Model selection, evaluation strategy, and deployment plan with monitoring criteria.
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="final">
+                  <AccordionTrigger className="px-6">The Final</AccordionTrigger>
+                  <AccordionContent className="px-6 pb-6 text-sm text-muted-foreground">
+                    Ship the model, document results, and present insights with reproducible artifacts.
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </CardContent>
+          </Card>
+        </section>
+
+        <section id="about" className="container py-12">
           <h2 className="text-2xl font-bold mb-4">About Me</h2>
           <Card className="transition-shadow hover:shadow-elevated">
             <CardContent className="p-6 space-y-2">
@@ -98,34 +170,7 @@ const Index = () => {
           </Card>
         </section>
 
-        <section id="projects" className="container py-10">
-          <h2 className="text-2xl font-bold mb-4">Projects</h2>
-          <Card className="transition-shadow hover:shadow-elevated">
-            <CardContent className="p-6 space-y-2">
-              <ul className="list-disc list-inside space-y-2">
-                <li>
-                  Fraud Detection using Machine Learning – Developed using Python, Scikit-learn, and SMOTE. Focused on maximizing recall and minimizing false positives. Visualized with ROC curves and confusion matrices.
-                </li>
-                <li>Blockchain-based Voting System</li>
-                <li>Snake and Ladder Game – Java-based console simulation using OOP principles, dice simulation, and class structures.</li>
-                <li>Location Finder using Kali Linux – Tracked device location using phishing pages and HTML5 Geolocation API; simulated ethical hacking scenarios.</li>
-              </ul>
-            </CardContent>
-          </Card>
-        </section>
-
-        <section id="interests" className="container py-10">
-          <h2 className="text-2xl font-bold mb-4">Interests</h2>
-          <Card className="transition-shadow hover:shadow-elevated">
-            <CardContent className="p-6">
-              <p>
-                I am passionate about AI/ML, cybersecurity, business development, personal growth, and data privacy. I also explore areas like ethical hacking, Vastu-based home planning, and creative video/photo editing.
-              </p>
-            </CardContent>
-          </Card>
-        </section>
-
-        <section id="resume" className="container py-10">
+        <section id="resume" className="container py-12">
           <h2 className="text-2xl font-bold mb-4">Resume</h2>
           <Card className="transition-shadow hover:shadow-elevated">
             <CardContent className="p-6">
@@ -139,8 +184,11 @@ const Index = () => {
           </Card>
         </section>
 
-        <section id="contact" className="container py-10">
-          <h2 className="text-2xl font-bold mb-4">Contact</h2>
+        <section id="contact" className="container py-12">
+          <h2 className="sr-only">Contact</h2>
+          <div aria-hidden className="heading-outline text-[18vw] leading-none font-extrabold mb-6 select-none">
+            CONTACT <span className="text-gradient-brand">ME</span>
+          </div>
           <Card className="transition-shadow hover:shadow-elevated">
             <CardContent className="p-6 space-y-2">
               <p>
