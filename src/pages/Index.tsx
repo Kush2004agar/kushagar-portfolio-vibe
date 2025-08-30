@@ -158,7 +158,7 @@ const Index = () => {
                 Hi, I'm Kushagar Singh Ahuja, a CSE student interested in AI, ML, and data security.
               </p>
               <p>
-                I was born on 22 August 2004 at 10:20 PM in Mandi, Himachal Pradesh. I'm currently based in Chennai, Tamil Nadu.
+                I was born on 22 August 2004 in Mandi, Himachal Pradesh. I'm currently based in Chennai, Tamil Nadu.
               </p>
               <p>
                 I aim to build a billion-dollar business and have been working on AI/ML projects, including fraud detection and blockchain-based voting systems.
