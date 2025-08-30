@@ -9,7 +9,7 @@ const Index = () => {
   const person = {
     name: "Kushagar Singh Ahuja",
     title: "Aspiring AI/ML Engineer | Entrepreneur | CSE Student",
-    email: "ka5683@srmist.edu.in",
+    email: "ahujakushagar5@gmail.com",
     phone: "+91 9816124878",
     github: "https://github.com/Kush2004agar",
     linkedin: "https://linkedin.com/in/your-linkedin",
