@@ -1,9 +1,9 @@
-import React from "react";
+import React, { Suspense } from "react";
 import HeroPortrait from "@/components/HeroPortrait";
 import Navigation from "@/components/Navigation";
 import ThemeToggle from "@/components/ThemeToggle";
-import SkillsSection from "@/components/SkillsSection";
-import ProjectShowcase from "@/components/ProjectShowcase";
+const SkillsSection = React.lazy(() => import("@/components/SkillsSection"));
+const ProjectShowcase = React.lazy(() => import("@/components/ProjectShowcase"));
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -49,8 +49,8 @@ const Index = () => {
       color: "text-green-600"
     },
     {
-      title: "500+ Users",
-      description: "Blockchain Voting System",
+      title: "Deployed Prototypes",
+      description: "Full-stack ML demos and utilities",
       icon: <Award className="w-5 h-5" />,
       color: "text-blue-600"
     },
@@ -137,9 +137,50 @@ const Index = () => {
       </header>
 
       <main>
-        <ProjectShowcase />
+        <Suspense fallback={<div className="container py-12 text-muted-foreground">Loading projects…</div>}>
+          <ProjectShowcase />
+        </Suspense>
 
-        <SkillsSection />
+        <Suspense fallback={<div className="container py-12 text-muted-foreground">Loading skills…</div>}>
+          <SkillsSection />
+        </Suspense>
+
+        <section id="education" className="container py-12">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold mb-4">Education</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Formal academics and continuous learning that shape my engineering foundation.
+            </p>
+          </div>
+          <Card className="transition-shadow hover:shadow-elevated">
+            <CardContent className="p-6 space-y-4">
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="space-y-3">
+                  <h3 className="text-xl font-semibold">Formal Education</h3>
+                  <ul className="text-sm text-muted-foreground list-disc list-inside space-y-1">
+                    <li>
+                      B.Tech (CSE): <span className="font-medium">SRM IST - Ramapuram</span> — <span className="font-medium">Expected 2026</span>
+                    </li>
+                    <li>
+                      Class 12: <span className="font-medium">Career Point Gurukul, Mohali (Chandigarh)</span> — <span className="font-medium">2022</span>
+                    </li>
+                    <li>
+                      Class 10: <span className="font-medium">DAV Centenary Public School, Mandi (H.P.)</span> — <span className="font-medium">2020</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="space-y-2">
+                  <h3 className="text-xl font-semibold">Focus & Highlights</h3>
+                  <ul className="text-sm text-muted-foreground list-disc list-inside space-y-1">
+                    <li>Core CS: data structures, algorithms, operating systems, DBMS</li>
+                    <li>Applied ML projects: fraud detection</li>
+                    <li>Hands-on: model tuning, basic deployment, UI integrations</li>
+                  </ul>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
 
         <section id="process" className="container py-12">
           <div className="text-center mb-8">
@@ -284,7 +325,7 @@ const Index = () => {
                 <div className="space-y-3 text-sm text-muted-foreground">
                   <p>
                     I aim to build a billion-dollar business and have been working on AI/ML projects, 
-                    including fraud detection and blockchain-based voting systems.
+                    including fraud detection and user-centric product experiments.
                   </p>
                   <p>
                     My passion lies in leveraging artificial intelligence to solve real-world problems 
@@ -300,17 +341,18 @@ const Index = () => {
               <h3 className="text-xl font-semibold">Business Ventures</h3>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="font-medium mb-2">PG Facility Management</h4>
+                  <h4 className="font-medium mb-2">Ahuja PG</h4>
                   <p className="text-sm text-muted-foreground">
-                    I manage a PG facility for girls in Mandi with my father, gaining valuable 
-                    experience in operations and customer service.
+                    Family-run paying guest accommodation in Mandi, Himachal Pradesh. Operated by my father;
+                    I help with digital presence and operations to improve occupancy and guest experience.
                   </p>
                 </div>
                 <div>
-                  <h4 className="font-medium mb-2">Traditional Jewelry Business</h4>
+                  <h4 className="font-medium mb-2">AHUJA CLOTH AHUJA</h4>
                   <p className="text-sm text-muted-foreground">
-                    I oversee a traditional jewelry and suit shop, learning about business 
-                    management and traditional commerce practices.
+                    Retail shop for artificial jewelry and cosmetics, along with traditional Indian suits and salwar.
+                    We offer combo sets pairing outfits with matching jewelry. The shop is run by my father, and I
+                    support merchandising and marketing initiatives.
                   </p>
                 </div>
               </div>

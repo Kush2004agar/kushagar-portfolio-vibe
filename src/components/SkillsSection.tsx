@@ -39,10 +39,8 @@ const SkillsSection: React.FC = () => {
     { name: "SQL", level: 80, category: "Data", icon: <Database className="w-4 h-4" />, color: "bg-gradient-to-r from-blue-500 to-cyan-500" },
     { name: "Big Data", level: 70, category: "Data", icon: <Database className="w-4 h-4" />, color: "bg-gradient-to-r from-red-500 to-pink-500" },
     
-    // Security & Blockchain
+    // Security
     { name: "Cybersecurity", level: 75, category: "Security", icon: <Shield className="w-4 h-4" />, color: "bg-gradient-to-r from-red-600 to-orange-600" },
-    { name: "Blockchain", level: 70, category: "Security", icon: <Shield className="w-4 h-4" />, color: "bg-gradient-to-r from-yellow-500 to-orange-500" },
-    { name: "Web3", level: 65, category: "Security", icon: <Globe className="w-4 h-4" />, color: "bg-gradient-to-r from-purple-500 to-indigo-500" },
     
     // Tools & Frameworks
     { name: "TensorFlow", level: 80, category: "Tools", icon: <Zap className="w-4 h-4" />, color: "bg-gradient-to-r from-orange-500 to-red-500" },

@@ -72,34 +72,6 @@ const ProjectShowcase: React.FC = () => {
       }
     },
     {
-      id: "blockchain-voting",
-      title: "Blockchain Voting System",
-      subtitle: "Decentralized E-Voting Platform",
-      description: "Built a secure and transparent voting system using blockchain technology to ensure vote integrity and prevent tampering.",
-      image: "/placeholder.svg",
-      technologies: ["Solidity", "Web3.js", "React", "Node.js", "Ethereum", "IPFS"],
-      category: "Blockchain",
-      githubUrl: "https://github.com/Kush2004agar/blockchain-voting",
-      liveUrl: "https://blockchain-voting-demo.vercel.app",
-      duration: "4 months",
-      teamSize: "3 members",
-      impact: "Successfully deployed for university elections with 500+ voters",
-      challenges: [
-        "Ensuring voter privacy while maintaining transparency",
-        "Handling gas fees and transaction costs",
-        "User-friendly interface for non-technical users"
-      ],
-      solutions: [
-        "Implemented zero-knowledge proofs for privacy",
-        "Used Layer 2 solutions to reduce costs",
-        "Created intuitive UI with step-by-step guidance"
-      ],
-      metrics: {
-        users: "500+ voters",
-        performance: "100% uptime during elections"
-      }
-    },
-    {
       id: "snake-ladder",
       title: "Snake & Ladder Game",
       subtitle: "Interactive Web-Based Board Game",
@@ -157,7 +129,6 @@ const ProjectShowcase: React.FC = () => {
   const getCategoryIcon = (category: string) => {
     switch (category) {
       case "AI/ML": return <Brain className="w-4 h-4" />;
-      case "Blockchain": return <Shield className="w-4 h-4" />;
       case "Programming": return <Code className="w-4 h-4" />;
       case "Security": return <Shield className="w-4 h-4" />;
       default: return <Globe className="w-4 h-4" />;
@@ -167,7 +138,6 @@ const ProjectShowcase: React.FC = () => {
   const getCategoryColor = (category: string) => {
     switch (category) {
       case "AI/ML": return "bg-gradient-to-r from-purple-500 to-pink-500";
-      case "Blockchain": return "bg-gradient-to-r from-yellow-500 to-orange-500";
       case "Programming": return "bg-gradient-to-r from-blue-500 to-cyan-500";
       case "Security": return "bg-gradient-to-r from-red-500 to-orange-500";
       default: return "bg-gradient-to-r from-gray-500 to-gray-600";
@@ -179,7 +149,7 @@ const ProjectShowcase: React.FC = () => {
       <div className="text-center mb-8">
         <h2 className="text-3xl font-bold mb-4">Featured Projects</h2>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          A showcase of my most impactful projects spanning AI/ML, blockchain, and software development.
+          A showcase of my most impactful projects spanning AI/ML and software development.
         </p>
       </div>
 

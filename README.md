@@ -1,6 +1,6 @@
 # Kushagar Singh Ahuja - AI/ML Engineer Portfolio
 
-A modern, interactive portfolio showcasing Kushagar's expertise in AI/ML, blockchain, and software development. Built with React, TypeScript, and Tailwind CSS.
+A modern, interactive portfolio showcasing Kushagar's expertise in AI/ML and software development. Built with React, TypeScript, and Tailwind CSS.
 
 ## ✨ Features
 
