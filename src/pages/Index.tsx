@@ -16,7 +16,7 @@ const Index = () => {
     email: "ahujakushagar5@gmail.com",
     phone: "+91 9816124878",
     github: "https://github.com/Kush2004agar",
-    linkedin: "https://linkedin.com/in/your-linkedin",
+    linkedin: "https://www.linkedin.com/in/kushagar-singh-ahuja-4aa007251/?trk=public-profile-join-page",
     location: "Chennai, Tamil Nadu",
     birthDate: "August 22, 2004",
     birthPlace: "Mandi, Himachal Pradesh",
